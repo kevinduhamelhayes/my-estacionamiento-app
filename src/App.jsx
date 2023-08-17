@@ -9,13 +9,13 @@ const App = () => {
     setIsOpen(!isOpen)
   }
   return (
-    <main className='w-full flex flex-col '>
+    <main className='w-full flex flex-col bg-slate-900'>
       <Navbar
       toggleModal={toggleModal}
       />
       {isOpen && <Modal toggleModal={toggleModal}/>}
       <div className="p-10">
-      <h1 className="text-2xl mb-6">Parking Grid</h1>
+      <h1 className="text-4xl mb-6 text-white text-center">Parking Grid</h1>
       <Grid />
     </div>
     </main>

@@ -1,19 +1,18 @@
-import { FaReact } from "react-icons/fa"
-
 const Navbar = ({ toggleModal = () => {} }) => {
   return (
-    <nav className="w-full bg-blue-400 h-24 px-8 flex text-white items-center justify-between">
+    <nav className="w-full bg-yellow-400 h-24 px-8 flex text-white items-center justify-between">
       <figure>
-        <h3 className="text-2xl font-medium flex gap-2 items-center">
-          <FaReact size="1.4em" />
-          Logo
-        </h3>
+        <img 
+          className="w-[250px] h-[100px] object-cover"
+          src="./public/logo.png" 
+          alt=""
+        />
       </figure>
       <ul>
         <li>
           <button
             type="button"
-            className="bg-red-600 px-4 py-2 rounded-lg font-medium"
+            className="bg-slate-900 px-4 py-2 rounded-lg font-medium m-8"
             onClick={toggleModal}
           >
             New Car
@@ -24,4 +23,4 @@ const Navbar = ({ toggleModal = () => {} }) => {
   )
 }
 
-export default Navbar
+export default Navbar;
