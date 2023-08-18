@@ -15,7 +15,7 @@ const App = () => {
       />
       {isOpen && <Modal toggleModal={toggleModal}/>}
       <div className="p-10">
-      <h1 className="text-4xl mb-6 text-white text-center">Parking Grid</h1>
+      <h1 className="text-4xl mb-6 text-yellow-400 text-center">Parking Devink</h1>
       <Grid />
     </div>
     </main>
