@@ -1,9 +1,10 @@
 import { useRef, useEffect } from "react"
 
-const Info = ({ toggleInfo, data }) => {
+const Info = ({ toggleInfo, data = { patente: "Desconocido", tiempo: "Desconocido", abonado: "Desconocido" } }) => {
+  // ... (resto del código)
   const ref = useRef()
 
-  const closeModalOnOutsideClick = (event) => {
+  const closeInfoOnOutsideClick = (event) => {
     if (ref.current && !ref.current.contains(event.target)) {
       toggleInfo()
     }
@@ -36,7 +37,7 @@ const Info = ({ toggleInfo, data }) => {
             {data.abonado}
           </p>
           <button
-            onClick={toggleModal}
+            onClick={toggleInfo}
             className="bg-yellow-500 w-full py-2 rounded-xl text-white"
           >
             Cerrar
