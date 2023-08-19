@@ -1,4 +1,4 @@
-const Navbar = ({ toggleModal = () => {} }) => {
+const Navbar = ({ toggleInfo = () => {} }) => {
   return (
     <nav className="w-full bg-yellow-400 h-24 px-8 flex text-white items-center justify-between">
       <figure>
@@ -13,9 +13,9 @@ const Navbar = ({ toggleModal = () => {} }) => {
           <button
             type="button"
             className="bg-slate-900 px-4 py-2 rounded-lg font-medium m-8"
-            onClick={toggleModal}
+            onClick={toggleInfo}
           >
-            New Car
+            Información
           </button>
         </li>
       </ul>
