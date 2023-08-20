@@ -10,16 +10,17 @@ const App = () => {
     setIsOpen(!isOpen)
   }
   return (
-    <main className="w-full flex flex-col bg-slate-900">
+    <main className="w-full h-full flex flex-col bg-slate-900">
       <Navbar toggleInfo={toggleInfo} />
       {isOpen && <Info toggleInfo={toggleInfo} />}
       <div className="p-10">
         <h1 className="text-4xl mb-6 text-yellow-400 text-center">
           Parking Devink
         </h1>
-
         <Grid />
+        
       </div>
+      <div className="h-full w-full flex flex-col min-h-full bg-black">0</div>
     </main>
   )
 }

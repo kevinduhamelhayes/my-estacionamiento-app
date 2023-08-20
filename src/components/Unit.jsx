@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Modal from "./Modal"  // Asegúrate de importar el modal desde la ubicación correcta
+import Modal from "./Modal"
 
 function Unit() {
   const [isParked, setIsParked] = useState(false)
@@ -22,7 +22,7 @@ function Unit() {
     >
       {isParked && (
         <>
-          <figure className="w-12 h-22">
+          <figure className="relative w-12 h-22">
             <img
               src="./public/autito3.png"
               alt="car"

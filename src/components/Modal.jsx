@@ -22,7 +22,7 @@ const Modal = ({ toggleModal }) => {
   }
 
   return (
-    <aside className="fixed backdrop-blur-sm top-0 w-full grid place-content-center h-full z-10">
+    <aside className="absolute backdrop-blur-sm top-48 left-0 w-full h-full grid place-content-center z-10">
       <section
         ref={ref}
         className="max-w-[600px] p-4 rounded-xl  bg-slate-800 border-yellow-500 border-2 border-dashed "
