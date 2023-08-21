@@ -1,26 +1,33 @@
 import Navbar from "./components/Navbar"
-//import Modal from './components/Modal'
+import Modal from './components/Modal'
 import Grid from "./components/Grid"
 import { useState } from "react"
-import Info from "./components/Info"
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const toggleInfo = () => {
+  const [place, setPlace] = useState(0)
+  const [parkedCars, setParkedCars] = useState([])
+
+  const toggleModal = (newPlace) => {
     setIsOpen(!isOpen)
+    setPlace(newPlace)
   }
+  console.log(parkedCars)
   return (
-    <main className="w-full h-full flex flex-col bg-slate-900">
-      <Navbar toggleInfo={toggleInfo} />
-      {isOpen && <Info toggleInfo={toggleInfo} />}
+    <main className="w-full h-screen flex flex-col bg-slate-900">
+      <Navbar toggleInfo={toggleModal} />
+      {isOpen && 
+      <Modal 
+      parkedCars={parkedCars} 
+      place={place} 
+      toggleModal={toggleModal} 
+      setParkedCars={setParkedCars} />}
       <div className="p-10">
         <h1 className="text-4xl mb-6 text-yellow-400 text-center">
           Parking Devink
         </h1>
-        <Grid />
-        
+        <Grid parkedCars={parkedCars} toggleModal={toggleModal} parkedCars={parkedCars} />
       </div>
-      <div className="h-full w-full flex flex-col min-h-full bg-black">0</div>
     </main>
   )
 }

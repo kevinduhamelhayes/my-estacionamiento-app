@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react"
+import { useFormik } from "formik"
 
-const Modal = ({ toggleModal }) => {
+const Modal = ({ toggleModal, place, setParkedCars, parkedCars }) => {
   const ref = useRef()
 
   const closeModalOnOutsideClick = (event) => {
@@ -16,40 +17,59 @@ const Modal = ({ toggleModal }) => {
     }
   }, [])
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    toggleModal()
-  }
+  const formik = useFormik({
+    initialValues: {
+      place,
+      patente: "",
+      tiempo: "",
+      abonado: "",
+    },
+    onSubmit: (values) => {
+      setParkedCars([...parkedCars, JSON.stringify(values, null, 2)])
+      toggleModal()
+    },
+  })
 
   return (
-    <aside className="absolute backdrop-blur-sm top-48 left-0 w-full h-full grid place-content-center z-10">
+    <aside className="absolute backdrop-blur-sm top-0 left-0 w-full h-full grid place-content-center z-10">
       <section
         ref={ref}
         className="max-w-[600px] p-4 rounded-xl  bg-slate-800 border-yellow-500 border-2 border-dashed "
       >
-        <h3 className="text-white">Completa los datos del nuevo cliente:</h3>
+        <h3 className="text-white">Completa los datos del nuevo cliente en nuestro parking nro {place}:</h3>
         <form
-          onSubmit={handleSubmit}
-          className="flex flex-col h-full gap-6 mt-4"
+          onSubmit={formik.handleSubmit}
+          className="flex flex-col h-full mt-4"
         >
           <input
-            type="text"
             name="patente"
+            type="text"
+            id="patente"
+            onChange={formik.handleChange}
+            value={formik.values.patente}
             placeholder="Patente"
-            className="rounded-xl p-1 border-yellow-500 border-2 border-dashed"
+            className="rounded-xl p-1 my-2 border-yellow-500 border-2 border-dashed"
           />
           <input
             type="text"
-            name="patente"
+            name="tiempo"
+            id="tiempo"
+            onChange={formik.handleChange}
+            value={formik.values.tiempo}
             placeholder="Tiempo"
-            className="rounded-xl p-1 border-yellow-500 border-2 border-dashed"
+            className="rounded-xl p-1 my-2 border-yellow-500 border-2 border-dashed"
           />
-          <input
-            type="text"
-            name="patente"
-            placeholder="Abonado"
-            className="rounded-xl p-1 border-yellow-500 border-2 border-dashed"
-          />
+          <div className="my-2 w-full flex justify-between items-center">
+            <p className="text-white">Abonado?</p>
+            <input
+              type="radio"
+              id="abonado"
+              onChange={formik.handleChange}
+              value={formik.values.patente}
+              name="patente"
+              className=" p-1 border-yellow-500 border-2 border-dashed"
+            />
+          </div>
           <button
             type="submit"
             className="bg-yellow-500 w-full py-2 rounded-xl text-white"
