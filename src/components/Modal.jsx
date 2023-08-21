@@ -25,7 +25,7 @@ const Modal = ({ toggleModal, place, setParkedCars, parkedCars }) => {
       abonado: "",
     },
     onSubmit: (values) => {
-      setParkedCars([...parkedCars, JSON.stringify(values, null, 2)])
+      setParkedCars([...parkedCars, values])
       toggleModal()
     },
   })
