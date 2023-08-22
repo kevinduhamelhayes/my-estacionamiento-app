@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const MiniCard = ({patente, tiempo, abonado}) => {
   return (
@@ -7,7 +7,6 @@ const MiniCard = ({patente, tiempo, abonado}) => {
               <div className="z-20">Plate: {patente}</div>
               <div className="z-20">Time: {tiempo}</div>
               <div className="z-20">Abonado: {abonado}</div>
-
             </div>
   )
 }

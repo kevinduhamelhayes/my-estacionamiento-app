@@ -1,15 +1,12 @@
 import { useState } from "react"
 import MiniCard from "./MiniCard"
-
 function Unit({abonado, patente, tiempo, index, toggleModal }) {
   const [isParked, setIsParked] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-
   const handleUnitClick = () => {
     toggleModal(index)
     setIsParked(!isParked)
   }
-
   return (
     <div
       className="border-4 grid place-content-center border-dashed border-yellow-300 rounded-md w-24 h-16 relative cursor-pointer bg-slate-300"
@@ -28,12 +25,10 @@ function Unit({abonado, patente, tiempo, index, toggleModal }) {
           </figure>
           {index && isHovered && (
             <MiniCard abonado={abonado} patente={patente} tiempo={tiempo}/>
-          
           )}
         </>
       )}
     </div>
   )
 }
-
 export default Unit
