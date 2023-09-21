@@ -1,7 +1,8 @@
 import Navbar from "./components/Navbar"
-import Modal from './components/Modal'
+import Modal from './components/Modal1'
 import Grid from "./components/Grid"
 import { useState } from "react"
+import Footer from "./components/Footer"
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,8 +27,9 @@ const App = () => {
         <h1 className="text-4xl mb-6 text-yellow-400 text-center">
           Parking Devink
         </h1>
-        <Grid parkedCars={parkedCars} toggleModal={toggleModal} parkedCars={parkedCars} />
+        <Grid parkedCars={parkedCars} toggleModal={toggleModal}  />
       </div>
+      <Footer />
     </main>
   )
 }

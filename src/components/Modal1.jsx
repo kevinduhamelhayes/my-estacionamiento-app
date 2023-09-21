@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useFormik } from "formik"
 
-const Modal = ({ toggleModal, place, setParkedCars, parkedCars }) => {
+const Modal1 = ({ toggleModal, place, setParkedCars, parkedCars }) => {
   const ref = useRef()
 
   const closeModalOnOutsideClick = (event) => {
@@ -22,7 +22,7 @@ const Modal = ({ toggleModal, place, setParkedCars, parkedCars }) => {
       place,
       patente: "",
       tiempo: "",
-      abonado: "",
+      abonado: false,
     },
     onSubmit: (values) => {
       setParkedCars([...parkedCars, values])
@@ -60,16 +60,17 @@ const Modal = ({ toggleModal, place, setParkedCars, parkedCars }) => {
             className="rounded-xl p-1 my-2 border-yellow-500 border-2 border-dashed"
           />
           <div className="my-2 w-full flex justify-between items-center">
-            <p className="text-white">Abonado?</p>
-            <input
-              type="radio"
-              id="abonado"
-              onChange={formik.handleChange}
-              value={formik.values.patente}
-              name="patente"
-              className=" p-1 border-yellow-500 border-2 border-dashed"
-            />
-          </div>
+  <p className="text-white">Abonado?</p>
+  <input
+    type="checkbox"
+    id="abonado"
+    onChange={formik.handleChange}
+    checked={formik.values.abonado}
+    name="abonado"
+    className="p-1 border-yellow-500 border-2 border-dashed"
+  />
+</div>
+
           <button
             type="submit"
             className="bg-yellow-500 w-full py-2 rounded-xl text-white"
@@ -82,4 +83,4 @@ const Modal = ({ toggleModal, place, setParkedCars, parkedCars }) => {
   )
 }
 
-export default Modal
+export default Modal1

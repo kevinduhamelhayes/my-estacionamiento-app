@@ -4,7 +4,7 @@ import Unit from "./Unit"
 import { useEffect, useState } from "react"
 
 function Grid({ parkedCars, toggleModal }) {
-  const [units, setUnits] = useState(Array(25).fill(null))
+  const [units, setUnits] = useState(Array(24).fill(null))
   console.log(parkedCars)
   useEffect(() => {
     const newUnits = [...units]
